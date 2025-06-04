@@ -15,7 +15,7 @@
   --grid-color: rgba(59, 130, 246, 0.2);
   --margin-color: rgba(255, 0, 0, 0.1);
   --line-color: rgba(0, 0, 0, 0.02);
-  --paper-bg: #f8fafc;
+  --paper-bg: #f0f7ff;
   
   /* Enhanced Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -64,14 +64,14 @@ body {
   background-image: 
     linear-gradient(
       to right,
-      rgba(59, 130, 246, 0.1) 0,
-      rgba(59, 130, 246, 0.1) 1px,
+      rgba(59, 130, 246, 0.2) 0,
+      rgba(59, 130, 246, 0.2) 1px,
       transparent 1px,
       transparent 100%
     ),
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.03) 1px,
+      rgba(0, 0, 0, 0.05) 1px,
       transparent 1px
     ) !important;
   background-size: 100% 28px !important;
