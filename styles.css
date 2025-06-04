@@ -13,8 +13,8 @@
   --streak-color-1: rgba(59, 130, 246, 0.4);
   --streak-color-2: rgba(37, 99, 235, 0.35);
   --grid-color: rgba(59, 130, 246, 0.2);
-  --margin-color: rgba(220, 38, 38, 0.3);
-  --line-color: rgba(59, 130, 246, 0.3);
+  --margin-color: rgba(220, 38, 38, 0.5);
+  --line-color: rgba(59, 130, 246, 0.5);
   
   /* Enhanced Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -58,18 +58,14 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height);
   color: var(--text);
-  background: var(--background);
+  background-color: #f8f9fa;
+  position: relative;
   min-height: 100vh;
   padding-top: var(--header-height);
-  position: relative;
   overflow-x: hidden;
-  background-color: #f8f9fa;
-  background-image: 
-    linear-gradient(0deg, var(--line-color) 1px, transparent 1px),
-    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
-  background-size: 32px 32px, 100px 100px;
 }
 
+/* Notebook paper effect */
 body::before {
   content: '';
   position: fixed;
@@ -77,12 +73,27 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(90deg, var(--margin-color) 0%, var(--margin-color) 50px, transparent 50px, transparent 100%);
-  background-size: 100% 100%;
+  background-image: 
+    linear-gradient(0deg, var(--line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--margin-color) 0, var(--margin-color) 50px, transparent 50px, transparent 100%);
+  background-size: 32px 32px, 100% 100%;
   pointer-events: none;
   z-index: -1;
-  opacity: 1;
+}
+
+/* Paper texture */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
