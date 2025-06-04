@@ -62,23 +62,39 @@ body {
   color: var(--text);
   background-color: #f0f7ff !important;
   background-image: 
-    /* Lightning bolt pattern */
+    /* Squiggly lightning bolt pattern */
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(59, 130, 246, 0.03) 0%,
+      transparent 30%
+    ),
+    /* Curved path */
     linear-gradient(
       45deg,
       transparent 0%,
-      transparent 40%,
-      rgba(59, 130, 246, 0.03) 40%,
-      rgba(59, 130, 246, 0.03) 60%,
-      transparent 60%,
+      transparent 35%,
+      rgba(59, 130, 246, 0.03) 35%,
+      rgba(59, 130, 246, 0.03) 65%,
+      transparent 65%,
       transparent 100%
     ),
     linear-gradient(
       -45deg,
       transparent 0%,
-      transparent 40%,
-      rgba(59, 130, 246, 0.03) 40%,
-      rgba(59, 130, 246, 0.03) 60%,
-      transparent 60%,
+      transparent 35%,
+      rgba(59, 130, 246, 0.03) 35%,
+      rgba(59, 130, 246, 0.03) 65%,
+      transparent 65%,
       transparent 100%
     ),
     /* Grid lines */
@@ -103,10 +119,16 @@ body {
   background-size: 
     200% 200%,
     200% 200%,
+    200% 200%,
+    200% 200%,
+    200% 200%,
     100% 28px,
     100% 28px,
     100% 100% !important;
   background-position: 
+    0% 0%,
+    0% 0%,
+    0% 0%,
     0% 0%,
     0% 0%,
     0 0,
@@ -116,14 +138,28 @@ body {
   min-height: 100vh;
   padding-top: var(--header-height);
   overflow-x: hidden;
-  animation: lightningShift 20s ease-in-out infinite;
+  animation: squiggleShift 30s ease-in-out infinite;
 }
 
-@keyframes lightningShift {
+@keyframes squiggleShift {
   0% {
     background-position: 
       0% 0%,
       0% 0%,
+      0% 0%,
+      0% 0%,
+      0% 0%,
+      0 0,
+      0 0,
+      0 0;
+  }
+  25% {
+    background-position: 
+      100% 0%,
+      0% 100%,
+      50% 50%,
+      100% 0%,
+      0% 100%,
       0 0,
       0 0,
       0 0;
@@ -132,12 +168,29 @@ body {
     background-position: 
       100% 100%,
       100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      0 0,
+      0 0,
+      0 0;
+  }
+  75% {
+    background-position: 
+      0% 100%,
+      100% 0%,
+      50% 50%,
+      0% 100%,
+      100% 0%,
       0 0,
       0 0,
       0 0;
   }
   100% {
     background-position: 
+      0% 0%,
+      0% 0%,
+      0% 0%,
       0% 0%,
       0% 0%,
       0 0,
