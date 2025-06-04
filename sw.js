@@ -1,10 +1,8 @@
-const CACHE_NAME = 'portfolio-cache-v6';
+const CACHE_NAME = 'portfolio-cache-v7';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/resume.html',
-  '/styles.css',
-  '/mobile.css',
   '/favicon.svg',
   '/apple-touch-icon.svg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap',
@@ -42,6 +40,11 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - network first, then cache
 self.addEventListener('fetch', (event) => {
+  // Don't cache CSS files
+  if (event.request.url.endsWith('.css')) {
+    return event.respondWith(fetch(event.request));
+  }
+
   event.respondWith(
     fetch(event.request)
       .then((response) => {
