@@ -62,65 +62,53 @@ body {
   color: var(--text);
   background-color: #f0f7ff !important;
   background-image: 
-    /* Bold squiggly pattern */
+    /* Bold diagonal stripes */
+    repeating-linear-gradient(
+      45deg,
+      rgba(59, 130, 246, 0.3) 0px,
+      rgba(59, 130, 246, 0.3) 10px,
+      transparent 10px,
+      transparent 20px
+    ),
+    /* Large circles */
     radial-gradient(
       circle at 20% 20%,
-      rgba(59, 130, 246, 0.2) 0%,
-      transparent 30%
+      rgba(37, 99, 235, 0.4) 0%,
+      transparent 40%
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(59, 130, 246, 0.2) 0%,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(59, 130, 246, 0.2) 0%,
+      rgba(37, 99, 235, 0.4) 0%,
       transparent 40%
     ),
-    /* Additional bold squiggles */
-    radial-gradient(
-      circle at 30% 70%,
-      rgba(59, 130, 246, 0.2) 0%,
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 70% 30%,
-      rgba(59, 130, 246, 0.2) 0%,
-      transparent 25%
-    ),
-    /* Bold grid lines */
+    /* Bold grid */
     linear-gradient(
       to right,
-      rgba(59, 130, 246, 0.2) 0,
-      rgba(59, 130, 246, 0.2) 1px,
+      rgba(59, 130, 246, 0.3) 0,
+      rgba(59, 130, 246, 0.3) 1px,
       transparent 1px,
       transparent 100%
     ),
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.1) 1px,
+      rgba(59, 130, 246, 0.3) 1px,
       transparent 1px
     ),
     /* Base gradient */
     linear-gradient(
       135deg,
       rgba(240, 247, 255, 1) 0%,
-      rgba(191, 219, 254, 0.7) 100%
+      rgba(191, 219, 254, 1) 100%
     ) !important;
   background-size: 
+    100% 100%,
     200% 200%,
     200% 200%,
-    200% 200%,
-    200% 200%,
-    200% 200%,
-    100% 28px,
-    100% 28px,
+    50px 50px,
+    50px 50px,
     100% 100% !important;
   background-position: 
-    0% 0%,
-    0% 0%,
-    0% 0%,
+    0 0,
     0% 0%,
     0% 0%,
     0 0,
@@ -130,15 +118,13 @@ body {
   min-height: 100vh;
   padding-top: var(--header-height);
   overflow-x: hidden;
-  animation: boldSquiggle 10s ease-in-out infinite;
+  animation: boldPattern 8s ease-in-out infinite;
 }
 
-@keyframes boldSquiggle {
+@keyframes boldPattern {
   0% {
     background-position: 
-      0% 0%,
-      0% 0%,
-      0% 0%,
+      0 0,
       0% 0%,
       0% 0%,
       0 0,
@@ -147,20 +133,16 @@ body {
   }
   50% {
     background-position: 
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
-      100% 100%,
       0 0,
-      0 0,
+      100% 100%,
+      100% 100%,
+      25px 25px,
+      25px 25px,
       0 0;
   }
   100% {
     background-position: 
-      0% 0%,
-      0% 0%,
-      0% 0%,
+      0 0,
       0% 0%,
       0% 0%,
       0 0,
