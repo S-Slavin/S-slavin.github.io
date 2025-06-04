@@ -8,13 +8,14 @@
   --primary-light: #2563eb;
   --accent: #3b82f6;
   --text: #1e3a8a;
-  --background: #f8f9fa;
+  --background: #ffffff;
   --border: #bfdbfe;
   --streak-color-1: rgba(59, 130, 246, 0.4);
   --streak-color-2: rgba(37, 99, 235, 0.35);
   --grid-color: rgba(59, 130, 246, 0.2);
-  --margin-color: rgba(220, 38, 38, 0.8);
-  --line-color: rgba(59, 130, 246, 0.8);
+  --margin-color: rgba(255, 0, 0, 0.1);
+  --line-color: rgba(0, 0, 0, 0.02);
+  --paper-bg: #f8fafc;
   
   /* Enhanced Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -51,6 +52,7 @@ html {
   font-size: var(--font-size-base);
   height: 100%;
   scroll-padding-top: var(--header-height);
+  background-color: var(--paper-bg);
 }
 
 body {
@@ -58,50 +60,33 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height);
   color: var(--text);
-  background-color: #f8f9fa;
+  background-color: #f8fafc !important;
+  background-image: 
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 0.05) 0,
+      rgba(255, 0, 0, 0.05) 1px,
+      transparent 1px,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.01) 1px,
+      transparent 1px
+    ) !important;
+  background-size: 100% 28px !important;
   position: relative;
   min-height: 100vh;
   padding-top: var(--header-height);
   overflow-x: hidden;
 }
 
-/* Notebook paper effect */
-.notebook-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #f8f9fa;
-  background-image: 
-    repeating-linear-gradient(
-      to bottom,
-      transparent,
-      transparent 31px,
-      var(--line-color) 31px,
-      var(--line-color) 32px
-    ),
-    linear-gradient(
-      to right,
-      var(--margin-color) 0,
-      var(--margin-color) 50px,
-      transparent 50px,
-      transparent 100%
-    );
-  pointer-events: none;
-  z-index: 0;
+.notebook-paper {
+  display: none !important;
 }
 
-.notebook-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
-  background-size: 100px 100px;
-  opacity: 0.5;
+.notebook-background {
+  display: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -118,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: var(--space-4) var(--space-3);
   position: relative;
-  z-index: 2;
+  z-index: 1;
   background: transparent;
 }
 

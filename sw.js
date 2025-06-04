@@ -1,9 +1,10 @@
-const CACHE_NAME = 'portfolio-cache-v4';
+const CACHE_NAME = 'portfolio-cache-v6';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/resume.html',
   '/styles.css',
+  '/mobile.css',
   '/favicon.svg',
   '/apple-touch-icon.svg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap',
