@@ -13,8 +13,8 @@
   --streak-color-1: rgba(59, 130, 246, 0.4);
   --streak-color-2: rgba(37, 99, 235, 0.35);
   --grid-color: rgba(59, 130, 246, 0.2);
-  --margin-color: rgba(220, 38, 38, 0.7);
-  --line-color: rgba(59, 130, 246, 0.7);
+  --margin-color: rgba(220, 38, 38, 0.8);
+  --line-color: rgba(59, 130, 246, 0.8);
   
   /* Enhanced Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -89,7 +89,7 @@ body {
       transparent 100%
     );
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 
 .notebook-background::after {
@@ -118,7 +118,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   padding: var(--space-4) var(--space-3);
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  background: transparent;
 }
 
 /* Navigation Styles */
@@ -363,7 +364,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Section Cards */
 .section-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 16px;
   padding: var(--space-4);
   margin-bottom: var(--space-4);
@@ -372,6 +373,8 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .section-card::before {
