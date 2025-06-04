@@ -10,8 +10,8 @@
   --text: #1e3a8a;
   --background: #f0f7ff;
   --border: #bfdbfe;
-  --streak-color-1: rgba(59, 130, 246, 0.1);
-  --streak-color-2: rgba(37, 99, 235, 0.05);
+  --streak-color-1: rgba(59, 130, 246, 0.3);
+  --streak-color-2: rgba(37, 99, 235, 0.25);
   
   /* Enhanced Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
@@ -70,10 +70,10 @@ body::before {
   right: 0;
   bottom: 0;
   background: 
-    linear-gradient(135deg, var(--streak-color-1) 0%, transparent 20%),
-    linear-gradient(225deg, var(--streak-color-2) 0%, transparent 20%),
-    linear-gradient(315deg, var(--streak-color-1) 0%, transparent 20%),
-    linear-gradient(45deg, var(--streak-color-2) 0%, transparent 20%);
+    linear-gradient(135deg, var(--streak-color-1) 0%, transparent 40%),
+    linear-gradient(225deg, var(--streak-color-2) 0%, transparent 40%),
+    linear-gradient(315deg, var(--streak-color-1) 0%, transparent 40%),
+    linear-gradient(45deg, var(--streak-color-2) 0%, transparent 40%);
   pointer-events: none;
   z-index: -1;
 }
