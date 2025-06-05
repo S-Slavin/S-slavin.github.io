@@ -798,19 +798,40 @@ body.resume-page .main-container {
 .resume header .subtitle {
   font-size: 1.75rem;
   color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .resume header .subtitle .download-link {
-  color: var(--primary);
+  color: var(--text);
   text-decoration: none;
-  font-size: 1.5rem;
-  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.8;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(240, 247, 255, 0.5);
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume header .subtitle .download-link::before {
+  content: "📄";
+  font-size: 1.1rem;
 }
 
 .resume header .subtitle .download-link:hover {
-  color: var(--primary-light);
-  text-decoration: underline;
+  color: var(--primary);
+  opacity: 1;
+  background: rgba(240, 247, 255, 0.8);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .resume-section {
