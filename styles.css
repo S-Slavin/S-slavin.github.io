@@ -832,26 +832,55 @@ h1, h2, h3, h4, h5, h6 {
 .download-btn {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(240, 247, 255, 0.8);
+  border: 1px solid var(--border);
   border-radius: 8px;
+  color: var(--primary);
+  text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
-  margin-top: var(--space-3);
-  border: 1px solid var(--primary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
+  margin: 2rem auto 1rem auto;
+  max-width: 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .download-btn:hover {
-  background: var(--primary-light);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+  background: rgba(240, 247, 255, 0.95);
+}
+
+.download-btn:hover::before {
+  opacity: 1;
 }
 
 .download-btn span {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover span {
+  transform: scale(1.1);
 }
 
 .resume-section {
