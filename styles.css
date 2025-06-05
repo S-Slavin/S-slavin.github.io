@@ -769,6 +769,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Resume Page Specific Styles */
+body.resume-page .main-container {
+  max-width: 1400px;
+  padding: 2rem;
+  zoom: 1.2;
+}
+
 .resume {
   max-width: 1200px;
   margin: 0 auto;
@@ -776,8 +782,6 @@ h1, h2, h3, h4, h5, h6 {
   background: white;
   border-radius: 16px;
   box-shadow: var(--shadow-xl);
-  transform: scale(1.1);
-  transform-origin: top center;
 }
 
 .resume header {
@@ -786,13 +790,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume header h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: var(--primary);
   margin-bottom: 0.75rem;
 }
 
 .resume header .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--primary-light);
 }
 
@@ -801,7 +805,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume-section h2 {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 2rem;
   border-bottom: 2px solid var(--border);
@@ -809,7 +813,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume-section h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: var(--primary);
   margin-bottom: 1.5rem;
 }
@@ -829,7 +833,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .resume-item h4 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--primary);
   margin-bottom: 0.75rem;
 }
@@ -837,13 +841,13 @@ h1, h2, h3, h4, h5, h6 {
 .resume-item .institution {
   font-weight: 500;
   color: var(--primary-light);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
 .resume-item .date {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
 }
 
@@ -856,7 +860,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   padding-left: 2rem;
   margin-bottom: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1.6;
 }
 
@@ -866,35 +870,29 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   color: var(--primary-light);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .languages-list {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
 .languages-list li {
-  padding: 1rem;
+  padding: 1.25rem;
   background: rgba(240, 247, 255, 0.5);
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .languages-list li:hover {
   background: rgba(240, 247, 255, 0.8);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
-}
-
-/* Adjust main container for resume page */
-body.resume-page .main-container {
-  max-width: 1400px;
-  padding: 2rem;
 }
 
 /* Footer */
