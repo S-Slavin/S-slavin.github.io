@@ -56,38 +56,70 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   line-height: var(--line-height);
   color: var(--text);
   background-color: #f0f7ff;
   background-image: 
-    linear-gradient(135deg, rgba(240, 247, 255, 0.97) 0%, rgba(191, 219, 254, 0.9) 100%),
+    /* Subtle noise texture */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    /* Geometric pattern */
     linear-gradient(45deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
     linear-gradient(-45deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, rgba(59, 130, 246, 0.03) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(59, 130, 246, 0.03) 75%);
+    linear-gradient(-45deg, transparent 75%, rgba(59, 130, 246, 0.03) 75%),
+    /* Base gradient */
+    linear-gradient(
+      135deg,
+      rgba(240, 247, 255, 0.97) 0%,
+      rgba(191, 219, 254, 0.9) 100%
+    );
   background-size: 
-    100% 100%,
+    200px 200px,
     20px 20px,
     20px 20px,
     20px 20px,
-    20px 20px;
+    20px 20px,
+    100% 100%;
   background-position: 
     0 0,
     0 0,
     10px 0,
     0 10px,
-    10px 10px;
+    10px 10px,
+    0 0;
   position: relative;
   min-height: 100vh;
   padding-top: var(--header-height);
   overflow-x: hidden;
+  animation: gentleDrift 40s ease-in-out infinite;
 }
 
 @keyframes gentleDrift {
-  0%, 100% {
+  0% {
     background-position: 
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  50% {
+    background-position: 
+      100px 100px,
+      10px 10px,
+      15px 10px,
+      10px 15px,
+      15px 15px,
+      0 0;
+  }
+  100% {
+    background-position: 
+      0 0,
       0 0,
       0 0,
       0 0,
@@ -96,10 +128,7 @@ body {
   }
 }
 
-.notebook-paper {
-  display: none !important;
-}
-
+.notebook-paper,
 .notebook-background {
   display: none !important;
 }
@@ -113,13 +142,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Main Container Layout */
 .main-container {
-  width: 100%;
-  max-width: var(--container-width);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-4) var(--space-3);
-  position: relative;
-  z-index: 1;
-  background: transparent;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Navigation Styles */
@@ -163,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: var(--header-height);
-  background: rgba(240, 247, 255, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
   backdrop-filter: blur(10px);
@@ -365,14 +392,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Section Cards */
 .section-card {
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  padding: var(--space-4);
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-2xl);
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -769,174 +792,129 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Resume Page Specific Styles */
-body.resume-page .main-container {
-  max-width: 1400px;
-  padding: 2rem;
-  zoom: 1.2;
-}
-
-.resume {
+.resume-page .main-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem;
-  background: white;
-  border-radius: 16px;
-  box-shadow: var(--shadow-xl);
+  padding: 2rem;
 }
 
-.resume header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.resume header h1 {
-  font-size: 3.5rem;
-  color: var(--primary);
-  margin-bottom: 0.75rem;
-}
-
-.resume header .subtitle {
-  font-size: 1.75rem;
-  color: var(--primary-light);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.resume header .subtitle .download-link {
-  color: var(--text);
-  text-decoration: none;
-  font-size: 1.25rem;
-  font-weight: 400;
-  opacity: 0.8;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: rgba(240, 247, 255, 0.5);
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.resume header .subtitle .download-link::before {
-  content: "📄";
-  font-size: 1.1rem;
-}
-
-.resume header .subtitle .download-link:hover {
-  color: var(--primary);
-  opacity: 1;
-  background: rgba(240, 247, 255, 0.8);
-  border-color: var(--primary-light);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+.resume-page .resume {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .resume-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .resume-section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--primary);
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 0.75rem;
 }
 
 .resume-section h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--primary);
-  margin-bottom: 1.5rem;
+}
+
+.resume-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
 }
 
 .resume-item {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background: rgba(240, 247, 255, 0.5);
-  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
 }
 
-.resume-item:hover {
-  background: rgba(240, 247, 255, 0.8);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.resume-item h4 {
-  font-size: 1.75rem;
-  color: var(--primary);
-  margin-bottom: 0.75rem;
-}
-
-.resume-item .institution {
-  font-weight: 500;
-  color: var(--primary-light);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.resume-item .date {
-  color: var(--text);
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+.resume-item p {
+  margin: 0.5rem 0;
 }
 
 .resume-item ul {
-  list-style: none;
+  margin: 0.5rem 0;
   padding-left: 1.5rem;
 }
 
 .resume-item li {
-  position: relative;
-  padding-left: 2rem;
-  margin-bottom: 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
-.resume-item li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--primary-light);
-  font-weight: bold;
-  font-size: 1.4rem;
+.institution {
+  font-weight: 600;
+  color: var(--primary);
 }
 
-.languages-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.5rem;
+.date {
+  color: var(--text-light);
+  font-style: italic;
 }
 
-.languages-list li {
-  padding: 1.25rem;
-  background: rgba(240, 247, 255, 0.5);
+/* Download button styles */
+.download-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  font-size: 1.25rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-.languages-list li:hover {
-  background: rgba(240, 247, 255, 0.8);
+.download-btn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
 }
 
-/* Footer */
+.download-btn span {
+  font-size: 1.2rem;
+}
+
+/* Make sure both pages have consistent header styles */
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure consistent spacing for lists */
+ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Make sure both pages have consistent footer styles */
 footer {
   text-align: center;
-  padding: var(--space-4) 0;
-  margin-top: var(--space-5);
-  background: white;
-  border-top: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
+  padding: 2rem 0;
+  color: var(--text-light);
+  margin-top: 2rem;
 }
 
 .footer-content {
